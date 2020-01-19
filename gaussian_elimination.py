@@ -3,26 +3,7 @@
 # 1. Concatenate column vector with coefficients matrix to get one array
 # 2. Transform array to upper-triangle matrix (zeros under diagonal)
 # 3. Make zeros of upper-diagonal part of triangle matrix
-
 import numpy as np
-
-coefficients_matrix = np.array([
-	[1, 2, 3,],
-	[2, -3, -5,],
-	[-6, -8, 1,],
-	], dtype=float)
-
-# coefficients_matrix = np.array([
-# 	[1, -3, 2,],
-# 	[1, 1, -2,],
-# 	[2, -1, 1,],
-# 	], dtype=float)
-
-column_vector = np.array([
-	[-7],
-	[9],
-	[-22],
-	], dtype=float)
 
 
 def create_upper_triangle(coefficients_matrix, column_vector):
@@ -47,7 +28,6 @@ def gaussian_elimination(coefficients_matrix, column_vector):
 	upper_triangle_matrix = create_upper_triangle(coefficients_matrix, column_vector)
 	result_matrix = zero_upper_triangle(upper_triangle_matrix)
 	return result_matrix[:, coefficients_matrix.shape[1]]
-
 
 if __name__ == "__main__":
 	print(gaussian_elimination(coefficients_matrix, column_vector))
