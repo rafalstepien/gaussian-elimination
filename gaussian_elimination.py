@@ -30,4 +30,4 @@ def gaussian_elimination(coefficients_matrix, column_vector):
 	return result_matrix[:, coefficients_matrix.shape[1]]
 
 if __name__ == "__main__":
-	print(gaussian_elimination(coefficients_matrix, column_vector))
+	gaussian_elimination(coefficients_matrix, column_vector)
