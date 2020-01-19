@@ -5,26 +5,7 @@
 # 3. Make zeros of upper-diagonal part of triangle matrix
 
 import numpy as np
-
-coefficients_matrix = np.array([
-	[1, 2, 3,],
-	[2, -3, -5,],
-	[-6, -8, 1,],
-	], dtype=float)
-
-# coefficients_matrix = np.array([
-# 	[1, -3, 2,],
-# 	[1, 1, -2,],
-# 	[2, -1, 1,],
-# 	], dtype=float)
-
-column_vector = np.array([
-	[-7],
-	[9],
-	[-22],
-	], dtype=float)
-
-
+ 
 def create_upper_triangle(coefficients_matrix, column_vector):
 	working_matrix = np.concatenate((coefficients_matrix, column_vector), axis=1)
 	# macierz robocza ma jedna wiecej kolumne, bo dodalismy do niej wektor wyrazow wolnych, np. (3, 4)
@@ -50,4 +31,31 @@ def gaussian_elimination(coefficients_matrix, column_vector):
 
 
 if __name__ == "__main__":
-	print(gaussian_elimination(coefficients_matrix, column_vector))
+
+	# ------------ TEST 1 ---------------
+	coefficients_matrix = np.array([
+	[1, 2, 3,],
+	[2, -3, -5,],
+	[-6, -8, 1,],
+	], dtype=float)
+
+	column_vector = np.array([
+	[-7],
+	[9],
+	[-22],
+	], dtype=float)
+
+	# ------------ TEST 2 ---------------
+	# coefficients_matrix = np.array([
+	# [1, -3, 2,],
+	# [1, 1, -2,],
+	# [2, -1, 1,],
+	# ], dtype=float)
+
+	# column_vector = np.array([
+	# [3],
+	# [1],
+	# [-1],
+	# ], dtype=float)
+
+	gaussian_elimination(coefficients_matrix, column_vector)
