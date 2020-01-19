@@ -3,14 +3,12 @@
 # 1. Concatenate column vector with coefficients matrix to get one array
 # 2. Transform array to upper-triangle matrix (zeros under diagonal)
 # 3. Make zeros of upper-diagonal part of triangle matrix
-
 import numpy as np
- 
+
 def create_upper_triangle(coefficients_matrix, column_vector):
 	working_matrix = np.concatenate((coefficients_matrix, column_vector), axis=1)
-	# macierz robocza ma jedna wiecej kolumne, bo dodalismy do niej wektor wyrazow wolnych, np. (3, 4)
-	for i in range(working_matrix.shape[1]):  # iteracja po kolumnach
-		for j in range(working_matrix.shape[0]):  # iteracja po wierszach
+	for i in range(working_matrix.shape[1]):  # column iteration
+		for j in range(working_matrix.shape[0]):  # row iteration
 			if i == j and working_matrix[i][i] != 1 and working_matrix[i][i] != 0:
 				working_matrix[i] = np.divide(working_matrix[i], working_matrix[i][i])
 			if j > i:
@@ -28,7 +26,6 @@ def gaussian_elimination(coefficients_matrix, column_vector):
 	upper_triangle_matrix = create_upper_triangle(coefficients_matrix, column_vector)
 	result_matrix = zero_upper_triangle(upper_triangle_matrix)
 	return result_matrix[:, coefficients_matrix.shape[1]]
-
 
 if __name__ == "__main__":
 
